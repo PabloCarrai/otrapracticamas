@@ -32,6 +32,8 @@ class Curso:
 curso1 = Curso(
     "Pedro Marmol de Lepizioni del Turgentino Maccardista", 12, "Ingenieria Civil"
 )
-print(curso1)
+print(
+    curso1
+)  #   Aca estaria el uso de __str__ llamo el objeto sin usar metodo/atributo alguno
 print(curso1.nombre)
 curso1.mostrarDatos()
