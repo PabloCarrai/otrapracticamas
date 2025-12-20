@@ -1,0 +1,12 @@
+create table curso(
+Codigo char(6),
+Nombre varchar(50),
+Creditos tinyint(2)
+)ENGINE=InnoDB;
+
+insert into curso(Codigo,Nombre,Creditos) values
+(872914,"Fisica General",5),
+(910212,"Introduccion a la Ingenieria",4),
+(365491,"Matematica Discreta",4),
+(103156,"Programacion Intermedia",5),
+(786401,"Teoria de Sistemas",4);
