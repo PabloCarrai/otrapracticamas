@@ -1,5 +1,58 @@
+from BD.conexion import DAO
+import funciones
+
+
 def ejecutarOpcion(opcion):
-    print(opcion)
+    #   print(opcion)
+    dao = DAO()
+    if opcion == 1:
+        try:
+            cursos = dao.listarCursos()
+            if len(cursos) > 0:
+                funciones.listarCursos(cursos)
+            else:
+                print("No se encontraron cursos")
+        except:
+            print("Ocurrio un error al lista los cursos")
+    elif opcion == 2:
+        curso = funciones.pedirDatosRegistro()
+        try:
+            dao.registrarCurso(curso)
+        except:
+            print("Ocurrio un error al registrar un cursos")
+        print("Registro")
+    elif opcion == 3:
+        try:
+            cursos = dao.listarCursos()
+            if len(cursos) > 0:
+                curso = None
+                if curso:
+                    dao.actualizarCurso(curso)
+                else:
+                    print("codigo de curso a actualizar no encontrado")
+            else:
+                print("No se encontraron cursos...")
+        except:
+            print("Ocurrio un error con la actualizacion")
+
+        print("Actualizacion")
+
+    elif opcion == 4:
+        try:
+            cursos = dao.listarCursos()
+            if len(cursos) > 0:
+                codigoEliminar = funciones.pedirDatosEliminacion(cursos)
+                if not (codigoEliminar == ""):
+                    dao.eliminarCurso(codigoEliminar)
+                else:
+                    print("Codigo de curso no encontrado")
+            else:
+                print("No se encontraron cursos")
+        except:
+            print("Ocurrio un error al eliminar un cursos")
+        print("Eliminacion")
+    else:
+        print("Opcion no valida")
 
 
 def menuPrincipal():
