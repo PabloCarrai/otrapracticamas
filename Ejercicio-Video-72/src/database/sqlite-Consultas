@@ -1,0 +1,30 @@
+-- el flaco te muestra la db que usa, pero no te da como armarla. 
+-- asi que pedi un ejemplo y como es para usar en python vamos con este. 
+-- esto lo corres desde una consola de sqlite3 habiendo creado el archivo
+
+-- Habilitar el soporte para llaves foráneas
+PRAGMA foreign_keys = ON;
+
+-- 1. Tabla de Categorías
+CREATE TABLE categorias (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL
+);
+
+-- 2. Tabla de Productos
+CREATE TABLE productos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    precio REAL DEFAULT 0.0,
+    stock INTEGER DEFAULT 0,
+    categoria_id INTEGER,
+    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+);
+
+-- 3. Insertar registros de prueba
+INSERT INTO categorias (nombre) VALUES ('Electrónica'), ('Hogar'), ('Libros');
+
+INSERT INTO productos (nombre, precio, stock, categoria_id) VALUES 
+('Laptop', 850.50, 10, 1),
+('El Quijote', 15.00, 20, 3);50, 1),
+
