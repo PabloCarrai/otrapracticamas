@@ -1,0 +1,1 @@
+create table person(id char(36) primary key,name varchar(100),company varchar(100),job varchar(100),email varchar(100),phone varchar(30),mac_address varchar(50));
